@@ -1,6 +1,8 @@
 package app
 
-open class Algorithm(private val board: Board) {
+abstract class Algorithm(private val board: Board) {
+
+    abstract fun fillBoard(allSolutions: Boolean): MutableSet<Board>
 
     internal fun isBoardCorrect(): Boolean {
         for (field in board.fields) {

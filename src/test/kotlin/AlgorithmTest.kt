@@ -20,7 +20,7 @@ class AlgorithmTest{
         board.get(2, 1).value = 1
         board.get(2, 2).value = 2
 
-        val algorithm = Algorithm(board)
+        val algorithm = BackTracking(board)
         Assert.assertTrue(algorithm.isBoardCorrect())
     }
 
@@ -37,7 +37,7 @@ class AlgorithmTest{
         board.get(2, 1).value = 2
         board.get(2, 2).value = 2
 
-        val algorithm = Algorithm(board)
+        val algorithm = BackTracking(board)
         Assert.assertTrue(!algorithm.isBoardCorrect())
 
     }
@@ -64,7 +64,7 @@ class AlgorithmTest{
     fun testGenerateValues() {
         val board = Board(3)
         val values = listOf(1, 1, 1, 2, 2, 2, 3, 3, 3)
-        val algorithm = Algorithm(board)
+        val algorithm = BackTracking(board)
         Assert.assertTrue(values == algorithm.generateValues())
     }
 
@@ -92,8 +92,8 @@ class AlgorithmTest{
     fun testForwardCheckingFillSquare() {
         val board = Board(3)
         val algorithm = ForwardChecking(board)
-        algorithm.fillBoard()
-        print(board.printBoard())
+        algorithm.fillBoard(false)
+        board.printBoard()
         Assert.assertTrue(algorithm.isBoardCorrect())
     }
 
@@ -101,8 +101,8 @@ class AlgorithmTest{
     fun testBackTrackingFillBoard() {
         val board = Board(3)
         val algorithm = BackTracking(board)
-        algorithm.fillBoard()
-        print(board.printBoard())
+        algorithm.fillBoard(false)
+        board.printBoard()
         Assert.assertTrue(algorithm.isBoardCorrect())
     }
 }
